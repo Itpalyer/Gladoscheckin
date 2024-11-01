@@ -7,14 +7,15 @@ from pypushdeer import PushDeer
 # -------------------------------------------------------------------------------------------
 # github workflows
 # -------------------------------------------------------------------------------------------
-if __name__ == '__main__':
-    # pushdeer key 申请地址 https://www.pushdeer.com/product.html
-    sckey = os.environ.get("SENDKEY", "")
-
-    # 推送内容
-    title = ""
-    success, fail, repeats = 0, 0, 0        # 成功账号数量 失败账号数量 重复签到账号数量
-    context = ""
+if __name__ == '__main__':  
+    # pushdeer key 申请地址 https://www.pushdeer.com/product.html  
+    sckey = os.environ.get("SENDKEY", "")  # 更改这里：将 SENDKEY 更改为 PUSHKEY  
+  
+    # ...其他代码...  
+  
+    # 推送消息  
+    pushdeer = PushDeer(pushkey=sckey)  # 在这里使用 sckey  
+    pushdeer.send_text(title, desp=context)  
 
     # glados账号cookie 直接使用数组 如果使用环境变量需要字符串分割一下
     cookies = os.environ.get("COOKIES", []).split("&")
